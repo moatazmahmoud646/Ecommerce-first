@@ -1,0 +1,30 @@
+{{#if customers}}
+<a href="/admin/admindash" class="btn btn-primary mb-3">Return to Dashboard</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each customers}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.address}}</td>
+          <td>{{this.phoneNumber}}</td>
+          <td>
+            <a href="/admin/customers/{{this._id}}">View</a>
+            <a href="/admin/customer-edit/{{this._id}}">Edit</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p>No customers found.</p>
+{{/if}}

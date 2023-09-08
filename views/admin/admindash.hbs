@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+  <header class="bg-dark text-light">
+    <div class="container py-3">
+      <h1 class="mb-0">Admin Dashboard</h1>
+      <nav>
+        <ul class="list-inline mb-0">
+          <!--  <li><a href="/">Home</a></li>
+            <li><a href="/admin">Dashboard</a></li>
+            
+            <a href="/admin/sales-report">View Sales Report</a>
+            <a href="/admin/revenue-report">View Revenue Report</a>
+          </ul> -->
+          <li class="list-inline-item"><a href="/logout" class="text-light">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="/admin/products" class="btn btn-primary mb-3">Manage Products</a>
+        </div>
+        <div class="col-md-3">
+          <a href="/admin/orders" class="btn btn-primary mb-3">Manage Orders</a>
+        </div>
+        <div class="col-md-3">
+          <a href="/admin/customers" class="btn btn-primary mb-3">Manage Customers</a>
+        </div>
+        <div class="col-md-3">
+          <a href="/admin/add-products" class="btn btn-primary mb-3">Add Product</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-light">
+    <div class="container py-3">
+      <p class="mb-0">&copy; 2023 Ecommerce. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

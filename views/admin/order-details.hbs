@@ -1,0 +1,40 @@
+<h1>Order Details</h1>
+<div>
+  <h2>Customer Name: {{order.customerName}}</h2>
+  <p>Order Date: {{formatDate order.orderDate}}</p>
+  <p>Status: {{order.status}}</p>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each order.items}}
+      <tr>
+        <td>{{this.product.name}}</td>
+        <td>{{this.quantity}}</td>
+        <td>{{formatCurrency this.product.price}}</td>
+        <td>{{formatCurrency (this.quantity * this.product.price)}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total:</td>
+      <td>{{formatCurrency order.totalAmount}}</td>
+    </tr>
+    <tr>
+      <td colspan="3">Discount:</td>
+      <td>{{formatCurrency order.discountAmount}}</td>
+    </tr>
+    <tr>
+      <td colspan="3">Grand Total:</td>
+      <td>{{formatCurrency (order.totalAmount - order.discountAmount)}}</td>
+    </tr>
+  </tfoot>
+</table>

@@ -1,0 +1,89 @@
+<!--<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-4">Cart</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each product}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{this.price this.quantity}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <a href="/customer/checkout" class="btn btn-primary"><i class="fas fa-cash-register"></i> Checkout</a>
+      <a href="/customer/products" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i> Continue Shopping</a>
+    </div>
+  </body>
+</html>-->
+<!-- cart.hbs -->
+<h1>Cart</h1>
+<head>
+    <title>Cart</title>
+    <a href="/udashboard" class="btn btn-primary mb-3">Return to Dashboard</a>
+    <link rel="stylesheet" href="/bootstrap-5.3.0-dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+</head>
+{{#if cart}}
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+ {{#each cart.items}}
+      <tr>
+        <td><img src="{{this.imageUrl}}" alt="{{this.name}}" width="50"></td>
+        <td>{{this.name}}</td>
+        <td>{{this.price}}</td>
+        <td>{{this.quantity}}</td>
+        <td>
+          <form action="/cart/{{this._id}}?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+          <form action="/cart/{{this._id}}" method="POST">
+            <button type="submit">Decrease</button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+      
+  </tbody>
+</table>
+
+<p>Total Price: {{totalPrice}}</p>
+<form action="/place-order" method="POST">
+  <button id="place-order-btn" class="btn btn-primary">Place Order</button>
+</form>
+{{else}}
+  <p>No items in the cart.</p>
+{{/if}}

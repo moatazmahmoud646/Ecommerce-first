@@ -1,0 +1,19 @@
+<h1>Sales Report</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Number of Orders</th>
+      <th>Total Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each report}}
+      <tr>
+        <td>{{formatDate this.date}}</td>
+        <td>{{this.numOrders}}</td>
+        <td>{{formatCurrency this.totalSales}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
