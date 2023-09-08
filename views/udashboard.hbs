@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Products</title>
+    <li><a href="/logout">Logout</a></li>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-4">All Products</h1>
+      <h1 class="mt-4"> user dashboard</h1>
+      <a href="/logout" class="btn btn-danger"  >Logout</a>
+      <a href="/cart" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> View Cart</a>
+      {{#each products}}
+      
+      <div class="card mt-4">
+        <img src="{{this.imageUrl}}" alt="{{this.name}}" width="200" class="img-thumbnail">
+        <div class="card-body">
+          <h2 class="card-title">{{this.name}}</h2>
+          <p class="card-text">Price: {{this.price}}</p>
+          <p class="card-text">Description: {{this.description}}</p>
+          <form action="/cart" method="POST">
+            <input type="hidden" name="productId" value="{{this._id}}">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+          </form>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    
+  </body>
+</html>

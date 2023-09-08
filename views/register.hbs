@@ -1,0 +1,68 @@
+<!-- views/register.hbs -->
+
+{{#if errorMessage}}
+  <div class="alert alert-danger">{{errorMessage}}</div>
+{{/if}}
+
+<form action="/register" method="POST">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" class="form-control" value="{{name}}" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" class="form-control" value="{{email}}" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" required> 
+  </div>
+  <div class="form-group">
+    <label for="DateOfBirth">Date of Birth:</label>
+    <input type="date" name="DateOfBirth" id="DateOfBirth" class="form-control" required>
+  </div>
+  <input type="submit" value="Register" class="btn btn-primary">
+</form>
+
+<style>
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+</style>
